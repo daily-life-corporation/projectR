@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'view', loadChildren: './view/view.module#ViewModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginModule' },
+  { path: 'profile/:id', loadChildren: './profile/profile.module#ProfileModule' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

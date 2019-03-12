@@ -1,0 +1,172 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/view">
+    <img src="https://firebasestorage.googleapis.com/v0/b/armevolution-e60b8.appspot.com/o/_ionicons_svg_ios-home.svg?alt=media&token=5b991844-ef8e-4320-8909-317e51cabb02" width="30" height="30" class="d-inline-block align-top" alt="">
+    Home
+  </a>
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong">
+  ลบประวัติ
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">ลบประวัติ</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        คุณจะลบประวัติหรือไม่
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-danger">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</nav><br> <br> <br> <br> <br> <br> <br>
+<div class="table-responsive-sm container">
+  <table class="table table-sm col-sm-12">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col col-md-auto">รหัสนักศึกษา</th>
+    <th scope="col col-md-auto">คำนำหน้า</th>
+    <th scope="col col-md-auto">ชื่อ</th>
+    <th scope="col col-md-auto">นามสกุล</th>
+    <th scope="col col-md-auto">ชื่อเล่น</th>
+    <th scope="col col-md-auto">ชื่อ EN</th>
+    <th scope="col col-md-auto">นามสกุลEN</th>
+    <th scope="col col-md-auto">หมายเลขบัตรประชาชน</th>
+    <th scope="col col-md-auto">วันเดือนปีเกิด</th>
+    <th scope="col col-md-auto">กรุ๊ปเลือด</th>
+    <th scope="col col-md-auto">เบอร์โทร</th>
+
+  </tr>
+</thead>
+<tbody>
+    <tr>
+      <td>{{student.ID}}</td>
+      <td>{{student.Prefix}}</td>
+      <td>{{student.FirstnameTH}}</td>
+      <td>{{student.LastnameTH}}</td>
+      <td>{{student.Nickname}}</td>
+      <td>{{student.FirstnameEN}}</td>
+      <td>{{student.LastnameEN}}</td>
+      <td>{{student.Idcard}}</td>
+      <td>{{student.Birthday}}</td>
+      <td>{{student.Blood}}</td>
+      <td>{{student.Cell}}</td>
+
+
+    </tr>
+  </tbody>
+</table>
+</div> <br>
+<div class="table-responsive-sm container">
+  <table class="table table-sm col-sm-12">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col col-md-auto">บ้านเลขที่</th>
+    <th scope="col col-md-auto">หมู่ที่</th>
+    <th scope="col col-md-auto">ถนน</th>
+    <th scope="col col-md-auto">ซอย</th>
+    <th scope="col col-md-auto">ตำบล</th>
+    <th scope="col col-md-auto">รหัสตำบล</th>
+    <th scope="col col-md-auto">อำเภอ</th>
+    <th scope="col col-md-auto">รหัสอำเภอ</th>
+    <th scope="col col-md-auto">จังหวัด</th>
+    <th scope="col col-md-auto">รหัสจังหวัด</th>
+    <th scope="col col-md-auto">รหัสไปรษณีย์</th>
+
+  </tr>
+</thead>
+<tbody>
+    <tr>
+      <td>{{student.Housenumber}}</td>
+      <td>{{student.VillageNo}}</td>
+      <td>{{student.Road}}</td>
+      <td>{{student.Alley}}</td>
+      <td>{{student.Subdistrict}}</td>
+      <td>{{student.Subdistrictcode}}</td>
+      <td>{{student.District}}</td>
+      <td>{{student.Districtcode}}</td>
+      <td>{{student.province}}</td>
+      <td>{{student.Provincecode}}</td>
+      <td>{{student.Zipcode}}</td>
+
+    </tr>
+  </tbody>
+</table>
+</div> <br>
+
+<div class="table-responsive-sm container">
+  <table class="table table-sm col-sm-12">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col col-md-auto">สถานศึกษาเดิม</th>
+    <th scope="col col-md-auto">รหัสสถานศึกษา</th>
+    <th scope="col col-md-auto">สาขาที่จบการศึกษา</th>
+    <th scope="col col-md-auto">เกรดเฉลี่ย</th>
+    <th scope="col col-md-auto">วุฒิการศึกษา</th>
+
+  </tr>
+</thead>
+<tbody>
+    <tr>
+      <td>{{student.Schoolname}}</td>
+      <td>{{student.Schoolcode}}</td>
+      <td>{{student.GraduationBranch}}</td>
+      <td>{{student.GPA}}</td>
+      <td>{{student.GraduationDegree}}</td>
+
+    </tr>
+  </tbody>
+</table>
+</div> <br>
+<div class="table-responsive-sm container">
+  <table class="table table-sm col-sm-12">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col col-md-auto">ปีการศึกษา</th>
+    <th scope="col col-md-auto">คณะ</th>
+    <th scope="col col-md-auto">รหัสคณะ</th>
+    <th scope="col col-md-auto">สาขา</th>
+    <th scope="col col-md-auto">รหัสสาขา</th>
+    <th scope="col col-md-auto">หลักสูตร</th>
+    <th scope="col col-md-auto">รหัสหลักสูตร</th>
+    <th scope="col col-md-auto">กลุ่มเรียน</th>
+    <th scope="col col-md-auto">รหัสกลุ่มเรียน</th>
+    <th scope="col col-md-auto">อาจารย์ที่ปรึกษา</th>
+    <th scope="col col-md-auto">รหัสอาจารย์ที่ปรึกษา</th>
+  </tr>
+</thead>
+<tbody>
+    <tr>
+      <td>{{student.AcademicYear}}</td>
+      <td>{{student.Facultyname}}</td>
+      <td>{{student.FacultyCode}}</td>
+      <td>{{student.Branchname}}</td>
+      <td>{{student.Branchcode}}</td>
+      <td>{{student.Coursename}}</td>
+      <td>{{student.Coursecode}}</td>
+      <td>{{student.Groupname}}</td>
+      <td>{{student.Groupcode}}</td>
+      <td>{{student.Advisorsname}}</td>
+      <td>{{student.Teachercode}}</td>
+
+
+    </tr>
+  </tbody>
+</table>
+</div> <br>
+
+
