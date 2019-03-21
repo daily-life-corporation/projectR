@@ -2,18 +2,20 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="/view">
-      <img src="https://firebasestorage.googleapis.com/v0/b/armevolution-e60b8.appspot.com/o/_ionicons_svg_ios-home.svg?alt=media&token=5b991844-ef8e-4320-8909-317e51cabb02" width="30" height="30" class="d-inline-block align-top" alt="">
+      <img src="https://firebasestorage.googleapis.com/v0/b/armevolution-e60b8.appspot.com/o/_ionicons_svg_ios-home.svg?alt=media&token=5b991844-ef8e-4320-8909-317e51cabb02"
+        width="30" height="30" class="d-inline-block align-top" alt="" />
       Home
     </a>
   </nav>
 
   <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
     เพิ่มประวัติ
   </button>
 
@@ -28,199 +30,419 @@
           </button>
         </div>
         <div class="modal-body">
-          รหัสนักศึกษา  <div class="input-group mb-1">
-              <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2"></span>
-              </div>
+          รหัสนักศึกษา
+          <div class="input-group mb-1">
+            <form>
+              <input type="text" class="form-control" [formControl]="id" aria-label="Recipient's username"
+                aria-describedby="basic-addon2" />
+            </form>
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"></span>
             </div>
-            <p>คำนำหน้า
-							<select class="custom-select" id="inputGroupSelect01">
-								<option value="1">นาย
-								<option value="2">นางสาว
-							</select>
-						</p>
-              ชื่อ-นามสกุล
-            <div class="input-group">
-              <input type="text" aria-label="First name" class="form-control">
-              <input type="text" aria-label="Last name" class="form-control">
+          </div>
+          <p>
+            คำนำหน้า
+            <select class="custom-select" [formControl]="Prefix" id="inputGroupSelect01">
+              <option value="นาย">นาย </option>
+              <option value="นางสาว">นางสาว </option>
+            </select>
+          </p>
+          ชื่อ-นามสกุล
+          <div class="input-group">
+            <input type="text" aria-label="First name" [formControl]="First" class="form-control" />
+            <input type="text" aria-label="Last name" [formControl]="Last" class="form-control" />
+          </div>
+          ชื่อ-นามสกุล(ภาษาอังกฤษ)
+          <div class="input-group">
+            <input type="text" aria-label="First name" [formControl]="FirstEN" class="form-control" />
+            <input type="text" aria-label="Last name" [formControl]="LastEN" class="form-control" />
+          </div>
+          ชื่อเล่น
+          <div class="input-group mb-1">
+            <form>
+              <input type="text" class="form-control" [formControl]="Nickname" aria-label="Recipient's username"
+                aria-describedby="basic-addon2" />
+            </form>
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"></span>
             </div>
-
-              ชื่อ-นามสกุลภาษาอังกฤษ
-            <div class="input-group">
-              <input type="text" aria-label="First name" class="form-control">
-              <input type="text" aria-label="Last name" class="form-control">
-            </div>
-
-
+          </div>
           หมายเลขบัตรประชาชน
           <div class="input-group mb-1">
-              <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2"></span>
-              </div>
+            <input type="text" class="form-control" [formControl]="IDcad" aria-label="Recipient's username"
+              aria-describedby="basic-addon2" />
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"></span>
             </div>
+          </div>
           วันเดือนปีเกิด
           <div class="input-group mb-1">
-              <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2"></span>
-              </div>
+            <input type="text" class="form-control" [formControl]="Date" aria-label="Recipient's username"
+              aria-describedby="basic-addon2" />
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"></span>
             </div>
-
-            <br>
+          </div>
+          <br />
           <div class="input-group mb-1">
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01">กรุ๊ปเลือด</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
+            <select class="custom-select" [formControl]="Blood" id="inputGroupSelect01">
               <option selected>A</option>
-              <option value="1">B</option>
-              <option value="2">AB</option>
-              <option value="3">O</option>
+              <option value="B">B</option>
+              <option value="AB">AB</option>
+              <option value="O">O</option>
             </select>
           </div>
           เบอร์โทร
           <div class="input-group mb-1">
-              <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2"></span>
-              </div>
+            <input type="text" class="form-control" [formControl]="Cell" aria-label="Recipient's username"
+              aria-describedby="basic-addon2" />
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"></span>
             </div>
+          </div>
           บ้านเลขที่
           <div class="input-group mb-1">
-              <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2"></span>
-              </div>
+            <input type="text" class="form-control" [formControl]="Housenumber" aria-label="Recipient's username"
+              aria-describedby="basic-addon2" />
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"></span>
             </div>
+          </div>
           ตำบล-อำเภอ-จังหวัด
           <div class="input-group mb-1">
-              <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2"></span>
-              </div>
+            <input type="text" class="form-control" [formControl]="Subdistrict" aria-label="Recipient's username"
+              aria-describedby="basic-addon2" />
+            <input type="text" class="form-control" [formControl]="District" aria-label="Recipient's username"
+              aria-describedby="basic-addon2" />
+            <input type="text" class="form-control" [formControl]="Province" aria-label="Recipient's username"
+              aria-describedby="basic-addon2" />
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"></span>
             </div>
-
+          </div>
           รหัสไปรษณีย์
           <div class="input-group mb-1">
-              <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2"></span>
-              </div>
+            <input type="text" class="form-control" [formControl]="Zipcode" aria-label="Recipient's username"
+              aria-describedby="basic-addon2" />
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"></span>
             </div>
+          </div>
           สถานศึกษาเดิม-สาขาที่จบการศึกษา
           <div class="input-group">
-            <input type="text" aria-label="First name" class="form-control">
-            <input type="text" aria-label="Last name" class="form-control">
+            <input type="text" [formControl]="Schoolname" aria-label="First name" class="form-control" />
+            <input type="text" [formControl]="GraduationBranch" aria-label="Last name" class="form-control" />
           </div>
-
           เกรดเฉลี่ย
           <div class="input-group mb-1">
-              <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2"></span>
-              </div>
+            <input type="text" [formControl]="GPA" class="form-control" aria-label="Recipient's username"
+              aria-describedby="basic-addon2" />
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"></span>
             </div>
-            วุฒิการศึกษา
-            <div class="input-group">
-          <select class="custom-select" id="inputGroupSelect01">
-            <option value="1">มัธยมศึกษาปีที่ 6
-            <option value="2">ปวส
-
-          </select>
-        </div>
+          </div>
+          วุฒิการศึกษา
+          <div class="input-group">
+            <select class="custom-select" [formControl]="GraduationDegree" id="inputGroupSelect01">
+              <option value="มัธยมศึกษาปีที่ 6">มัธยมศึกษาปีที่ 6 </option>
+              <option value="ปวส">ปวส </option>
+            </select>
+          </div>
           ปีการศึกษา
           <div class="input-group">
-            <select class="custom-select" id="inputGroupSelect01">
-              <option value="1">2559
-              <option value="2">2560
-              <option value="3">2561
+            <select class="custom-select" [formControl]="AcademicYear" id="inputGroupSelect01">
+              <option value="2559">2559 </option>
+              <option value="2560">2560 </option>
+              <option value="2561">2561 </option>
             </select>
           </div>
           คณะ
           <div class="input-group">
-        <select class="custom-select" id="inputGroupSelect01">
-          <option value="1">วิศวกรรมศาสตร์และสถาปัตยกรรมศาสตร์
-          <option value="2">บริหารธุรกิจ
-          <option value="3">วิทยาศาสตร์และศิลปะศาสตร์
-        </select>
-      </div>
+            <select class="custom-select" [formControl]="Faculty" id="inputGroupSelect01">
+              <option value="1700">วิศวกรรมศาสตร์และสถาปัตยกรรมศาสตร์
+              </option>
+            </select>
+          </div>
           สาขา
           <div class="input-group">
-        <select  class="custom-select" id="inputGroupSelect01">
-          <option value="EE">วิศวกรรมไฟฟ้า
-          <option value="CPE">วิศวกรรมคอมพิวเตอร์
-          <option value="EEE">วิศวกรรมอิเล็กทรอนิค
-        </select>
-      </div>
+            <select class="custom-select" [formControl]="Branch" id="inputGroupSelect01">
+              <option value="1733">วิศวกรรมคอมพิวเตอร์ </option>
+            </select>
+          </div>
           หลักสูตร
           <div class="input-group">
-            <select class="custom-select" id="inputGroupSelect01">
-              <option value="1">ปกติ
-              <option value="2">เทียบโอน
-
+            <select class="custom-select" [formControl]="Course" id="inputGroupSelect01">
+              <option value="1733022">ปกติ </option>
+              <option value="1733023">เทียบโอน </option>
             </select>
           </div>
           กลุ่มเรียน
           <div class="input-group">
-            <select class="custom-select" id="inputGroupSelect01">
-              <option value="1">CPE.59241
-              <option value="2">CPE.60241
-              <option value="3">CPE.61241
-              <option value="4">CPE.59231
-              <option value="5">CPE.60231
-              <option value="6">CPE.61231
+            <select class="custom-select" [formControl]="Groupname" id="inputGroupSelect01">
+              <option value="59241">CPE.59241 </option>
+              <option value="60241">CPE.60241 </option>
+              <option value="61241">CPE.61241 </option>
+              <option value="59231">CPE.59231 </option>
+              <option value="60231">CPE.60231 </option>
+              <option value="61231">CPE.61231 </option>
             </select>
           </div>
           อาจารย์ที่ปรึกษา
           <div class="input-group">
-            <select name="School"class="custom-select" id="inputGroupSelect01">
-              <option value="1">อาจารย์ประกาย นาดี
-              <option value="2">อาจารย์สุภัทรา เกิดเมฆ
-              <option value="3">อาจารย์กีระชาติ สุขสุทธิ์
-              <option value="4">ผู้ช่วยศาสตราจารย์วิทยา ศรีกุล
-              <option value="5">ผู้ช่วยศาสตราจารย์พรภัสสร อ่อนเกิด
-              <option value="6">อาจารย์ทิพา กองศรีมา
-
+            <select name="School" [formControl]="Advisorsname" class="custom-select" id="inputGroupSelect01">
+              <option value="101">อาจารย์ประกาย นาดี </option>
+              <option value="102">อาจารย์สุภัทรา เกิดเมฆ </option>
+              <option value="103">อาจารย์กีระชาติ สุขสุทธิ์ </option>
+              <option value="104">ผู้ช่วยศาสตราจารย์วิทยา ศรีกุล </option>
+              <option value="105">ผู้ช่วยศาสตราจารย์พรภัสสร อ่อนเกิด </option>
+              <option value="106">อาจารย์ทิพา กองศรีมา </option>
             </select>
           </div>
-
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-outline-primary">OK</button>
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-outline-primary" (click)="adddata()" onClick="document.location.reload(true)">
+            OK
+          </button>
         </div>
       </div>
     </div>
   </div>
 </nav>
 
+<!-------------------------------- แก้ไข -------------------------------------->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">แก้ไขประวัติ</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        รหัสนักศึกษา
+        <div class="input-group mb-1">
+          <form>
+            <input readonly type="text" class="form-control" [formControl]="id"  aria-label="Recipient's username"
+              aria-describedby="basic-addon2" />
+          </form>
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"></span>
+          </div>
+        </div>
+        <p>
+          คำนำหน้า
+          <select class="custom-select" [formControl]="Prefix" id="inputGroupSelect01">
+            <option value="นาย">นาย </option>
+            <option value="นางสาว">นางสาว </option>
+          </select>
+        </p>
+        ชื่อ-นามสกุล
+        <div class="input-group">
+          <input type="text" aria-label="First name" [formControl]="First" class="form-control" />
+          <input type="text" aria-label="Last name" [formControl]="Last" class="form-control" />
+        </div>
+        ชื่อ-นามสกุล(ภาษาอังกฤษ)
+        <div class="input-group">
+          <input type="text" aria-label="First name" [formControl]="FirstEN" class="form-control" />
+          <input type="text" aria-label="Last name" [formControl]="LastEN" class="form-control" />
+        </div>
+        ชื่อเล่น
+        <div class="input-group mb-1">
+          <form>
+            <input type="text" class="form-control" [formControl]="Nickname" aria-label="Recipient's username"
+              aria-describedby="basic-addon2" />
+          </form>
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"></span>
+          </div>
+        </div>
+        หมายเลขบัตรประชาชน
+        <div class="input-group mb-1">
+          <input type="text" class="form-control" [formControl]="IDcad" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" />
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"></span>
+          </div>
+        </div>
+        วันเดือนปีเกิด
+        <div class="input-group mb-1">
+          <input type="text" class="form-control" [formControl]="Date" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" />
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"></span>
+          </div>
+        </div>
+        <br />
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">กรุ๊ปเลือด</label>
+          </div>
+          <select class="custom-select" [formControl]="Blood" id="inputGroupSelect01">
+            <option selected>A</option>
+            <option value="B">B</option>
+            <option value="AB">AB</option>
+            <option value="O">O</option>
+          </select>
+        </div>
+        เบอร์โทร
+        <div class="input-group mb-1">
+          <input type="text" class="form-control" [formControl]="Cell" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" />
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"></span>
+          </div>
+        </div>
+        บ้านเลขที่
+        <div class="input-group mb-1">
+          <input type="text" class="form-control" [formControl]="Housenumber" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" />
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"></span>
+          </div>
+        </div>
+        ตำบล-อำเภอ-จังหวัด
+        <div class="input-group mb-1">
+          <input type="text" class="form-control" [formControl]="Subdistrict" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" />
+          <input type="text" class="form-control" [formControl]="District" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" />
+          <input type="text" class="form-control" [formControl]="Province" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" />
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"></span>
+          </div>
+        </div>
+        รหัสไปรษณีย์
+        <div class="input-group mb-1">
+          <input type="text" class="form-control" [formControl]="Zipcode" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" />
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"></span>
+          </div>
+        </div>
+        สถานศึกษาเดิม-สาขาที่จบการศึกษา
+        <div class="input-group">
+          <input type="text" [formControl]="Schoolname" aria-label="First name" class="form-control" />
+          <input type="text" [formControl]="GraduationBranch" aria-label="Last name" class="form-control" />
+        </div>
+        เกรดเฉลี่ย
+        <div class="input-group mb-1">
+          <input type="text" [formControl]="GPA" class="form-control" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" />
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"></span>
+          </div>
+        </div>
+        วุฒิการศึกษา
+        <div class="input-group">
+          <select class="custom-select" [formControl]="GraduationDegree" id="inputGroupSelect01">
+            <option value="มัธยมศึกษาปีที่ 6">มัธยมศึกษาปีที่ 6 </option>
+            <option value="ปวส">ปวส </option>
+          </select>
+        </div>
+        ปีการศึกษา
+        <div class="input-group">
+          <select class="custom-select" [formControl]="AcademicYear" id="inputGroupSelect01">
+            <option value="2559">2559 </option>
+            <option value="2560">2560 </option>
+            <option value="2561">2561 </option>
+          </select>
+        </div>
+        คณะ
+        <div class="input-group">
+          <select class="custom-select" [formControl]="Faculty" id="inputGroupSelect01">
+            <option value="1700">วิศวกรรมศาสตร์และสถาปัตยกรรมศาสตร์
+            </option>
+          </select>
+        </div>
+        สาขา
+        <div class="input-group">
+          <select class="custom-select" [formControl]="Branch" id="inputGroupSelect01">
+            <option value="1733">วิศวกรรมคอมพิวเตอร์ </option>
+          </select>
+        </div>
+        หลักสูตร
+        <div class="input-group">
+          <select class="custom-select" [formControl]="Course" id="inputGroupSelect01">
+            <option value="1733022">ปกติ </option>
+            <option value="1733023">เทียบโอน </option>
+          </select>
+        </div>
+        กลุ่มเรียน
+        <div class="input-group">
+          <select class="custom-select" [formControl]="Groupname" id="inputGroupSelect01">
+            <option value="59241">CPE.59241 </option>
+            <option value="60241">CPE.60241 </option>
+            <option value="61241">CPE.61241 </option>
+            <option value="59231">CPE.59231 </option>
+            <option value="60231">CPE.60231 </option>
+            <option value="61231">CPE.61231 </option>
+          </select>
+        </div>
+        อาจารย์ที่ปรึกษา
+        <div class="input-group">
+          <select name="School" [formControl]="Advisorsname" class="custom-select" id="inputGroupSelect01">
+            <option value="101">อาจารย์ประกาย นาดี </option>
+            <option value="102">อาจารย์สุภัทรา เกิดเมฆ </option>
+            <option value="103">อาจารย์กีระชาติ สุขสุทธิ์ </option>
+            <option value="104">ผู้ช่วยศาสตราจารย์วิทยา ศรีกุล </option>
+            <option value="105">ผู้ช่วยศาสตราจารย์พรภัสสร อ่อนเกิด </option>
+            <option value="106">อาจารย์ทิพา กองศรีมา </option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-outline-primary" (click)="update()" onClick="document.location.reload(true)"  >
+          OK
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script>
-  $('#myList a:first-child').tab('show') // Select first tab
-  </script>
+  $("#myList a:first-child").tab("show"); // Select first tab
+</script>
 <div class="row">
   <div class="col-5">
     <div class="list-group" id="list-tab" role="tablist">
-      <b>&nbsp; &nbsp;    หลักสูตรปกติ</b>
-      <a class="list-group-item list-group-item-action active" id="list-CPE59-list" data-toggle="list" href="#list-CPE59" role="tab" >CPE59</a>
-      <a class="list-group-item list-group-item-action" id="list-CPE60-list" data-toggle="list" href="#list-CPE60" role="tab" >CPE60</a>
-      <a class="list-group-item list-group-item-action" id="list-CPE61-list" data-toggle="list" href="#list-CPE61" role="tab" >CPE61</a>
+      <b>&nbsp; &nbsp; หลักสูตรปกติ</b>
+      <a class="list-group-item list-group-item-action active" id="list-CPE59-list" data-toggle="list" href="#list-CPE59"
+        role="tab">CPE59</a>
+      <a class="list-group-item list-group-item-action" id="list-CPE60-list" data-toggle="list" href="#list-CPE60" role="tab">CPE60</a>
+      <a class="list-group-item list-group-item-action" id="list-CPE61-list" data-toggle="list" href="#list-CPE61" role="tab">CPE61</a>
 
-      <b>&nbsp;  &nbsp;   หลักสูตรเทียบโอน</b>
-      <a class="list-group-item list-group-item-action" id="list-CPE59TO-list" data-toggle="list" href="#list-CPE59TO" role="tab" >CPE59</a>
-      <a class="list-group-item list-group-item-action" id="list-CPE60TO-list" data-toggle="list" href="#list-CPE60TO" role="tab" >CPE60</a>
-      <a class="list-group-item list-group-item-action" id="list-CPE61TO-list" data-toggle="list" href="#list-CPE61TO" role="tab" >CPE61</a>
+      <b>&nbsp; &nbsp; หลักสูตรเทียบโอน</b>
+      <a class="list-group-item list-group-item-action" id="list-CPE59TO-list" data-toggle="list" href="#list-CPE59TO"
+        role="tab">CPE59</a>
+      <a class="list-group-item list-group-item-action" id="list-CPE60TO-list" data-toggle="list" href="#list-CPE60TO"
+        role="tab">CPE60</a>
+      <a class="list-group-item list-group-item-action" id="list-CPE61TO-list" data-toggle="list" href="#list-CPE61TO"
+        role="tab">CPE61</a>
+       <b>&nbsp; &nbsp;หาโรงเรียนที่มีนักศึกษาจบมามากที่สุด</b>
+      <a class="list-group-item list-group-item-action" id="list-sara-list" data-toggle="list" href="#list-sara"
+        role="tab">ศรายุทธ ไกรษร</a>
 
-
-      <a class="list-group-item list-group-item-action" id="name-name" data-toggle="list" href="#name" role="tab" >
-      <div class="input-group ">
-          <input type="text" class="form-control" #ID placeholder="กรอกรหัสนักศึกษา" aria-label="กรอกรหัสนักศึกษา" aria-describedby="button-addon2">
+      <a class=" list-group-item-action" id="name-name" data-toggle="list" href="#name" role="tab">
+        <div class="input-group ">
+          <input type="text" class="form-control" #ID placeholder="กรอกรหัสนักศึกษา" aria-label="กรอกรหัสนักศึกษา"
+            aria-describedby="button-addon2" />
           <div class="input-group-append">
-            <button class="btn btn-light" type="button" (click)="click(ID.value)"  id="button-addon2">Search</button>
+            <button class="btn btn-outline-primary" type="button" (click)="getsearch(ID.value)" id="button-addon2">
+              ค้นหา
+            </button>
           </div>
         </div>
       </a>
@@ -228,133 +450,11 @@
   </div>
 
 
-
-
-
   <div class="col-md-7">
     <div class="tab-content show active" id="nav-tabContent">
-      <div class="tab-pane fade" id="list-CPE59" role="tabpanel" >
-          <div class="table-responsive-sm container">
-              <table class="table table-sm col-sm-6">
-
-                <!-- หัวตาราง -->
-                <thead>
-                  <tr>
-                    <th scope="col col-md-auto">รหัสนักศึกษา</th>
-                    <th scope="col col-md-auto">ชื่อ</th>
-                    <th scope="col col-md-auto">นามสกุล</th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let item of c59; let i=index" >
-                    <tr >
-
-                     <td><a class="btn btn-outline-warning"(click)="click(item.ID)">{{item.ID}}</a></td>
-                      <td>{{item.FirstnameTH}}</td>
-                      <td>{{item.LastnameTH}}</td>
-
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-
-
-
-
-
-      </div>
-      <!-- ปี60 -->
-      <div class="tab-pane fade" id="list-CPE60" role="tabpanel">
-          <div class="table-responsive-sm container">
-              <table class="table table-sm col-sm-6">
-
-                <!-- หัวตาราง -->
-                <thead>
-                  <tr>
-                    <th scope="col col-md-auto">รหัสนักศึกษา</th>
-                    <th scope="col col-md-auto">ชื่อ</th>
-                    <th scope="col col-md-auto">นามสกุล</th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let item of c60; let i=index" >
-                  <tr >
-
-                   <td><a class="btn btn-outline-warning"(click)="click(item.ID)">{{item.ID}}</a></td>
-                    <td>{{item.FirstnameTH}}</td>
-                    <td>{{item.LastnameTH}}</td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-      </div>
-
-
-
-
-
-
-      <div class="tab-pane fade" id="list-CPE61" role="tabpanel">
-          <div class="table-responsive-sm container">
-              <table class="table table-sm col-sm-6">
-
-                <!-- หัวตาราง -->
-                <thead>
-                  <tr>
-                    <th scope="col col-md-auto">รหัสนักศึกษา</th>
-                    <th scope="col col-md-auto">ชื่อ</th>
-                    <th scope="col col-md-auto">นามสกุล</th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let item of c61; let i=index" >
-                  <tr >
-                   <td><a class="btn btn-outline-warning"(click)="click(item.ID)">{{item.ID}}</a></td>
-                    <td>{{item.FirstnameTH}}</td>
-                    <td>{{item.LastnameTH}}</td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-      </div>
-
-
-
-
-
-      <div class="tab-pane fade" id="list-CPE59TO" role="tabpanel" >
-          <div class="table-responsive-sm container">
-              <table class="table table-sm col-sm-6">
-
-                <!-- หัวตาราง -->
-                <thead>
-                  <tr>
-                    <th scope="col col-md-auto">รหัสนักศึกษา</th>
-                    <th scope="col col-md-auto">ชื่อ</th>
-                    <th scope="col col-md-auto">นามสกุล</th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let item of c59TO; let i=index" >
-                  <tr >
-
-                   <td><a class="btn btn-outline-warning"(click)="click(item.ID)" >{{item.ID}}</a></td>
-                    <td>{{item.FirstnameTH}}</td>
-                    <td>{{item.LastnameTH}}</td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-
-
-
-
-
-      </div>
-      <div class="tab-pane fade" id="list-CPE60TO" role="tabpanel" >
-      <!-- tabel -->
+      <div class="tab-pane fade" id="list-CPE59" role="tabpanel">
         <div class="table-responsive-sm container">
-          <table class="table table-sm col-sm-6">
+          <table class="table table-hover">
             <!-- หัวตาราง -->
             <thead>
               <tr>
@@ -363,25 +463,343 @@
                 <th scope="col col-md-auto">นามสกุล</th>
               </tr>
             </thead>
-            <tbody *ngFor="let item of c60TO ; let id = index" >
+            <!-- c59 จะส่งค่ามาเป็นแบบArray คำสั่ง let item of คือจะใช้อ่าน Array  -->
+            <tbody *ngFor="let item of c59; let i = index">
               <tr>
-               <td><a class="btn btn-outline-warning"(click)="click(item.ID)">{{item.ID}}</a></td>
-                <td>{{item.FirstnameTH}}</td>
-                <td>{{item.LastnameTH}}</td>
+                <td>
+                  <a class="btn btn-outline-warning" (click)="click(item.ID)">{{
+                    item.ID
+                    }}</a>
+                </td>
+                <td>{{ item.FirstnameTH }}</td>
+                <td>{{ item.LastnameTH }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger"   data-toggle="modal" data-target="#exampleModalLong" (click)="deleteitem(item.ID,item.FirstnameTH)">
+                    ลบประวัติ
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">
+                            ลบประวัติ
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- โชวชื่อที่จะลบ -->
+                          คุณจะลบประวัติ {{ name_show }} หรือไม่
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                            Close
+                          </button>
+                          <button type="button" class="btn btn-outline-danger" (click)="OnDelete()" onClick="document.location.reload(true)">
+                            OK
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  &nbsp;
+                  <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal1"
+                  (click)="updateitem(item.ID,item.Prefix,item.FirstnameTH,item.LastnameTH,item.FirstnameEN,item.LastnameEN,item.Nickname,
+                  item.Idcard,item.Birthday,item.Blood,item.Cell,item.Housenumber,item.Subdistrict,item.District,item.Province,
+                  item.Zipcode,item.Schoolname,item.GraduationBranch,item.GPA,item.GraduationDegree,
+                  item.AcademicYear,item.FacultyCode,item.Branchcode,item.Coursecode,item.Groupcode,item.Teachercode)">
+                    แก้ไขประวัติ
+                  </button>
+
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <!-- สิ้นสุดตาราง -->
-
-
-
-
       </div>
-      <div class="tab-pane fade" id="list-CPE61TO" role="tabpanel" >
-        <!-- tabel -->
+
+      <!---------------------------- ปี60 -------------------------->
+      <div class="tab-pane fade" id="list-CPE60" role="tabpanel">
         <div class="table-responsive-sm container">
-          <table class="table table-sm col-sm-6">
+          <table class="table table-hover">
+            <!-- หัวตาราง -->
+            <thead>
+              <tr>
+                <th scope="col col-md-auto">รหัสนักศึกษา</th>
+                <th scope="col col-md-auto">ชื่อ</th>
+                <th scope="col col-md-auto">นามสกุล</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of c60; let i = index">
+              <tr>
+                <td>
+                  <a class="btn btn-outline-warning" (click)="click(item.ID)">{{
+                    item.ID
+                    }}</a>
+                </td>
+                <td>{{ item.FirstnameTH }}</td>
+                <td>{{ item.LastnameTH }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong2"(click)="deleteitem(item.ID,item.FirstnameTH)">
+                    ลบประวัติ
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">
+                            ลบประวัติ
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          คุณจะลบประวัติ {{ name_show }} หรือไม่
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                            Close
+                          </button>
+                          <button type="button" class="btn btn-outline-danger" (click)="OnDelete()" onClick="document.location.reload(true)">
+                            OK
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  &nbsp;
+                  <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal1"
+                  (click)="updateitem(item.ID,item.Prefix,item.FirstnameTH,item.LastnameTH,item.FirstnameEN,item.LastnameEN,item.Nickname,
+                  item.Idcard,item.Birthday,item.Blood,item.Cell,item.Housenumber,item.Subdistrict,item.District,item.Province,
+                  item.Zipcode,item.Schoolname,item.GraduationBranch,item.GPA,item.GraduationDegree,
+                  item.AcademicYear,item.FacultyCode,item.Branchcode,item.Coursecode,item.Groupcode,item.Teachercode)">
+                    แก้ไขประวัติ
+                  </button>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!------------------------------ ปี61------------------------------>
+      <div class="tab-pane fade" id="list-CPE61" role="tabpanel">
+        <div class="table-responsive-sm container">
+          <table class="table table-hover">
+            <!-- หัวตาราง -->
+            <thead>
+              <tr>
+                <th scope="col col-md-auto">รหัสนักศึกษา</th>
+                <th scope="col col-md-auto">ชื่อ</th>
+                <th scope="col col-md-auto">นามสกุล</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of c61; let i = index">
+              <tr>
+                <td>
+                  <a class="btn btn-outline-warning" (click)="click(item.ID)">{{
+                    item.ID
+                    }}</a>
+                </td>
+                <td>{{ item.FirstnameTH }}</td>
+                <td>{{ item.LastnameTH }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong3"(click)="deleteitem(item.ID,item.FirstnameTH)">
+                    ลบประวัติ
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">
+                            ลบประวัติ
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          คุณจะลบประวัติ {{ name_show }} หรือไม่
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                            Close
+                          </button>
+                          <button type="button" class="btn btn-outline-danger" (click)="OnDelete()" onClick="document.location.reload(true)">
+                            OK
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  &nbsp;
+                  <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal1"
+                  (click)="updateitem(item.ID,item.Prefix,item.FirstnameTH,item.LastnameTH,item.FirstnameEN,item.LastnameEN,item.Nickname,
+                  item.Idcard,item.Birthday,item.Blood,item.Cell,item.Housenumber,item.Subdistrict,item.District,item.Province,
+                  item.Zipcode,item.Schoolname,item.GraduationBranch,item.GPA,item.GraduationDegree,
+                  item.AcademicYear,item.FacultyCode,item.Branchcode,item.Coursecode,item.Groupcode,item.Teachercode)">
+                    แก้ไขประวัติ
+                  </button>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <!----------------------- ปี59TO ----------------------------->
+      <div class="tab-pane fade" id="list-CPE59TO" role="tabpanel">
+        <div class="table-responsive-sm container">
+          <table class="table table-hover">
+            <!-- หัวตาราง -->
+            <thead>
+              <tr>
+                <th scope="col col-md-auto">รหัสนักศึกษา</th>
+                <th scope="col col-md-auto">ชื่อ</th>
+                <th scope="col col-md-auto">นามสกุล</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of c59TO; let i = index">
+              <tr>
+                <td>
+                  <a class="btn btn-outline-warning" (click)="click(item.ID)">{{
+                    item.ID
+                    }}</a>
+                </td>
+                <td>{{ item.FirstnameTH }}</td>
+                <td>{{ item.LastnameTH }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong4"(click)="deleteitem(item.ID,item.FirstnameTH)">
+                    ลบประวัติ
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">
+                            ลบประวัติ
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          คุณจะลบประวัติ {{ name_show }} หรือไม่
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                            Close
+                          </button>
+                          <button type="button" class="btn btn-outline-danger" (click)="OnDelete()" onClick="document.location.reload(true)">
+                            OK
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  &nbsp;
+                  <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal1"
+                  (click)="updateitem(item.ID,item.Prefix,item.FirstnameTH,item.LastnameTH,item.FirstnameEN,item.LastnameEN,item.Nickname,
+                  item.Idcard,item.Birthday,item.Blood,item.Cell,item.Housenumber,item.Subdistrict,item.District,item.Province,
+                  item.Zipcode,item.Schoolname,item.GraduationBranch,item.GPA,item.GraduationDegree,
+                  item.AcademicYear,item.FacultyCode,item.Branchcode,item.Coursecode,item.Groupcode,item.Teachercode)">
+                    แก้ไขประวัติ
+                  </button>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!---------------------------- ปี60TO ------------------------------------>
+      <div class="tab-pane fade" id="list-CPE60TO" role="tabpanel">
+        <div class="table-responsive-sm container">
+          <table class="table table-hover">
+            <!-- หัวตาราง -->
+            <thead>
+              <tr>
+                <th scope="col col-md-auto">รหัสนักศึกษา</th>
+                <th scope="col col-md-auto">ชื่อ</th>
+                <th scope="col col-md-auto">นามสกุล</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of c60TO; let id = index">
+              <tr>
+                <td>
+                  <a class="btn btn-outline-warning" (click)="click(item.ID)">{{
+                    item.ID
+                    }}</a>
+                </td>
+                <td>{{ item.FirstnameTH }}</td>
+                <td>{{ item.LastnameTH }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong5"(click)="deleteitem(item.ID,item.FirstnameTH)" >
+                    ลบประวัติ
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalLong5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">
+                            ลบประวัติ
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          คุณจะลบประวัติ {{ name_show }} หรือไม่
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                            Close
+                          </button>
+                          <button type="button" class="btn btn-outline-danger" (click)="OnDelete()" onClick="document.location.reload(true)">
+                            OK
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  &nbsp;
+                  <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal1"
+                  (click)="updateitem(item.ID,item.Prefix,item.FirstnameTH,item.LastnameTH,item.FirstnameEN,item.LastnameEN,item.Nickname,
+                  item.Idcard,item.Birthday,item.Blood,item.Cell,item.Housenumber,item.Subdistrict,item.District,item.Province,
+                  item.Zipcode,item.Schoolname,item.GraduationBranch,item.GPA,item.GraduationDegree,
+                  item.AcademicYear,item.FacultyCode,item.Branchcode,item.Coursecode,item.Groupcode,item.Teachercode)">
+                    แก้ไขประวัติ
+                  </button>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <!-- สิ้นสุดตาราง -->
+<!-------------------------------- ปี61TO -------------------------------------->
+      <div class="tab-pane fade" id="list-CPE61TO" role="tabpanel">
+        <div class="table-responsive-sm container">
+          <table class="table table-hover">
             <!-- หัวตาราง -->
             <thead>
               <tr>
@@ -392,46 +810,152 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of c61TO; let id = index">
-                <td><a class="btn btn-outline-warning"(click)="click(item.ID)">{{item.ID}}</a>
+                <td>
+                  <a class="btn btn-outline-warning" (click)="click(item.ID)">{{
+                    item.ID
+                    }}</a>
                 </td>
-                <td>{{item.FirstnameTH}}</td>
-                <td>{{item.LastnameTH}}</td>
+                <td>{{ item.FirstnameTH }}</td>
+                <td>{{ item.LastnameTH }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong6"(click)="deleteitem(item.ID,item.FirstnameTH)">
+                    ลบประวัติ
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalLong6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">
+                            ลบประวัติ
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          คุณจะลบประวัติ {{ name_show }} หรือไม่
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                            Close
+                          </button>
+                          <button type="button" class="btn btn-outline-danger" (click)="OnDelete()" onClick="document.location.reload(true)">
+                            OK
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  &nbsp;
+                  <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal1"
+                  (click)="updateitem(item.ID,item.Prefix,item.FirstnameTH,item.LastnameTH,item.FirstnameEN,item.LastnameEN,item.Nickname,
+                  item.Idcard,item.Birthday,item.Blood,item.Cell,item.Housenumber,item.Subdistrict,item.District,item.Province,
+                  item.Zipcode,item.Schoolname,item.GraduationBranch,item.GPA,item.GraduationDegree,
+                  item.AcademicYear,item.FacultyCode,item.Branchcode,item.Coursecode,item.Groupcode,item.Teachercode)">
+                    แก้ไขประวัติ
+                  </button>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- สิ้นสุดตาราง -->
+
+      <div class="tab-pane fade" id="list-sara" role="tabpanel">
+        <!-- tabel -->
+        <div class="table-responsive-sm container">
+          <table class="table table-hover">
+            <!-- หัวตาราง -->
+            <thead>
+              <tr>
+                <th scope="col col-md-auto">จำนวนสถานศึกษา</th>
+                <th scope="col col-md-auto">ชื่อสถานศึกษา</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of sara; let id = index">
+                <td>{{ item.countschool }}</td>
+                <td>{{ item.Schoolname }}</td>
+                <td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+<!-- สิ้นสุดตาราง -->
+      <!------------------------ tabel seach ---------------------------------------------->
+      <div class="tab-pane fade" id="name" role="tabpanel">
+        <div class="table-responsive-sm container">
+          <table class="table table-hover">
+            <!-- หัวตาราง -->
+            <thead>
+              <tr>
+                <th scope="col col-md-auto">รหัสนักศึกษา</th>
+                <th scope="col col-md-auto">ชื่อ</th>
+                <th scope="col col-md-auto">นามสกุล</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of seach ; let id = index">
+                <td>
+                  <a class="btn btn-outline-warning" (click)="click(item.ID)">{{
+                    item.ID
+                    }}</a>
+                </td>
+                <td>{{ item.FirstnameTH }}</td>
+                <td>{{ item.LastnameTH }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong7"(click)="deleteitem(item.ID,item.FirstnameTH)">
+                    ลบประวัติ
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalLong7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">
+                            ลบประวัติ
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          คุณจะลบประวัติ {{ name_show }} หรือไม่
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                            Close
+                          </button>
+                          <button type="button" class="btn btn-outline-danger" (click)="OnDelete()" onClick="document.location.reload(true)">
+                            OK
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  &nbsp;
+                  <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal1"
+                  (click)="updateitem(item.ID,item.Prefix,item.FirstnameTH,item.LastnameTH,item.FirstnameEN,item.LastnameEN,item.Nickname,
+                  item.Idcard,item.Birthday,item.Blood,item.Cell,item.Housenumber,item.Subdistrict,item.District,item.Province,
+                  item.Zipcode,item.Schoolname,item.GraduationBranch,item.GPA,item.GraduationDegree,
+                  item.AcademicYear,item.FacultyCode,item.Branchcode,item.Coursecode,item.Groupcode,item.Teachercode)">
+                    แก้ไขประวัติ
+                  </button>
+
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
         <!-- สิ้นสุดตาราง -->
-
-
-
-
-
       </div>
-      <div class="tab-pane fade" id="name" role="tabpanel" >
-
-          <!-- tabel -->
-          <div class="table-responsive-sm container">
-            <table class="table table-sm col-sm-7">
-              <!-- หัวตาราง -->
-              <thead>
-                <tr>
-                  <th scope="col col-md-auto">รหัสนักศึกษา</th>
-                  <th scope="col col-md-auto">ชื่อ</th>
-                  <th scope="col col-md-auto">นามสกุล</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let item of name | async; let id = index">
-                  <td><a class="btn btn-outline-warning">{{item.ID}}</a></td>
-                  <td>{{item.ID}}</td>
-                  <td>{{item.FirstnameTH}}</td>
-                  <td>{{item.LastnameTH}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- สิ้นสุดตาราง -->
-        </div>
     </div>
   </div>
 </div>

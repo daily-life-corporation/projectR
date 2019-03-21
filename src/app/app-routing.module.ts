@@ -6,6 +6,8 @@ const routes: Routes = [
   { path: 'view', loadChildren: './view/view.module#ViewModule' },
   { path: 'login', loadChildren: './login/login.module#LoginModule' },
   { path: 'profile/:id', loadChildren: './profile/profile.module#ProfileModule' },
+  { path: 'update', loadChildren: './update/update.module#UpdateModule' },
+
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +25,8 @@ firebase.initializeApp(config);
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(config),
