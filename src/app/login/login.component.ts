@@ -15,8 +15,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   click ( u: string, p: string) {
-    if (u === 'addmin' && p === 'supatta') {
+    if (u === 'addmin' && p === 'addmin') {
       this.router.navigate(['/view']);
+    }
+    else if (u!='addmin' && p!='addmin'){
+      alert("กรุณากรอกรหัสผ่านให้ถูกต้อง");
     }
   }
 

@@ -253,10 +253,12 @@ export class ViewComponent implements OnInit {
     this.id_show = id;
     this.name_show = name;
   }
+
+
   updateitem(id,Prefix,First,Last,FirstEN,LastEN,Nickname,IDcad,Date,Blood,Cell,Housenumber,
   Subdistrict,District,Province,Zipcode,Schoolname,GraduationBranch,GPA,GraduationDegree,
   AcademicYear,Faculty,Branch,Course,Groupname,Advisorsname){
-    this.id = new FormControl(id);//this.id_show = id;
+    this.id = new FormControl(id);
     this.Prefix = new FormControl(Prefix);
     this.First = new FormControl(First);
     this.Last = new FormControl(Last);
