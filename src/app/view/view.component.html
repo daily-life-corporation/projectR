@@ -1,17 +1,20 @@
 <!-- <li *ngFor="let item of c60; let i=index"> {{ item | json}} </li> -->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"></a>
+<nav class="navbar navbar-dark bg-dark">
+  <!-- <a class="navbar-brand" href="#"></a> -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="/view">
-      <img src="https://firebasestorage.googleapis.com/v0/b/armevolution-e60b8.appspot.com/o/_ionicons_svg_ios-home.svg?alt=media&token=5b991844-ef8e-4320-8909-317e51cabb02"
+      <img src="assets\img\logo\home.jpg"
         width="30" height="30" class="d-inline-block align-top" alt="" />
       Home
     </a>
+
+
+
   </nav>
 
   <!-- Button trigger modal -->
@@ -434,6 +437,12 @@
        <b>&nbsp; &nbsp;หาโรงเรียนที่มีนักศึกษาจบมามากที่สุด</b>
       <a class="list-group-item list-group-item-action" id="list-sara-list" data-toggle="list" href="#list-sara"
         role="tab">ศรายุทธ ไกรษร</a>
+        <b>&nbsp; &nbsp;แยกตามสาขาที่จบว่า จบสาขาละกี่คน&กี่สถาบัน</b>
+      <a class="list-group-item list-group-item-action" id="list-kom-list" data-toggle="list" href="#list-kom"
+        role="tab">คมอิทธิเบศ แมบจันทึก</a>
+
+
+
 
       <a class=" list-group-item-action" id="name-name" data-toggle="list" href="#name" role="tab">
         <div class="input-group ">
@@ -880,6 +889,30 @@
             <tbody>
               <tr *ngFor="let item of sara; let id = index">
                 <td>{{ item.countschool }}</td>
+                <td>{{ item.Schoolname }}</td>
+                <td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <div class="tab-pane fade" id="list-kom" role="tabpanel">
+        <!-- tabel -->
+        <div class="table-responsive-sm container">
+          <table class="table table-hover">
+            <!-- หัวตาราง -->
+            <thead>
+              <tr>
+                <th scope="col col-md-auto">สาขาที่จบมา</th>
+                <th scope="col col-md-auto">จำนวน</th>
+                <th scope="col col-md-auto">ชื่อสถานศึกษา</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of kom; let id = index">
+                <td>{{ item.GraduationBranch }}</td>
+                <td>{{ item.COUNTBranch }}</td>
                 <td>{{ item.Schoolname }}</td>
                 <td>
             </tbody>

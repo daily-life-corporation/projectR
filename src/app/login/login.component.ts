@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+
   constructor(
     public router: Router
   ) { }
@@ -16,11 +17,12 @@ export class LoginComponent implements OnInit {
   }
   click ( u: string, p: string) {
     if (u === 'addmin' && p === 'addmin') {
-      this.router.navigate(['/view']);
+      this.router.navigate(['/view' ]);
     }
     else if (u!='addmin' && p!='addmin'){
       alert("กรุณากรอกรหัสผ่านให้ถูกต้อง");
     }
   }
+
 
 }

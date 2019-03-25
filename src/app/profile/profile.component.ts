@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -9,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  [x: string]: any;
   public c59TO;
   public IDSTUDENT;
   public dbstudent;
@@ -16,15 +18,16 @@ export class ProfileComponent implements OnInit {
   public studentProfile;
   public element;
   public studentID;
+  public chak = false;
 
 
-  constructor(public db: AngularFireDatabase, public route: ActivatedRoute , public http: HttpClient ) {
+  constructor(public db: AngularFireDatabase, public route: ActivatedRoute , public http: HttpClient,public router: Router ) {
 
     this.IDSTUDENT = this.route.params.subscribe(params => {
       this.dbstudent = params['id'];
       console.log(this.dbstudent); // Print the parameter to the console.
-  });
 
+  });
    }
 
   ngOnInit() {
