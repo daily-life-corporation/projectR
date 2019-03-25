@@ -4,10 +4,7 @@
 
     require_once('../Model/StudentModel.php');
     $student_Model = new studentModel;
-    
-
-echo $_GET["ID"];
-    $student = $student_Model -> deleteStudent($_GET["ID"]);
+    $student = $student_Model -> getDatakom();
  
     echo json_encode($student);
 

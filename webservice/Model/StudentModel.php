@@ -275,6 +275,27 @@ class studentModel extends BaseModel{
         }
     }
    
+
+    function getDatakom(){
+
+        $sql  = 'SELECT
+        Student.GraduationBranch ,COUNT(student.GraduationBranch)  AS COUNTBranch,student.Schoolname
+    FROM
+        Student
+    GROUP BY student.Schoolname  
+    ORDER BY  student.GraduationBranch  DESC';
+        // echo "<pre>";
+        // print_r($sql);
+        // echo "</pre>";
+        if ($result = mysqli_query(static::$db,$sql, MYSQLI_USE_RESULT)) {
+            $data = [];
+            while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+                $data[] = $row;
+            }
+            $result->close();
+            return $data;
+        }
+    }
    
     function getDataBY($ID){ 
         $PP = "$ID";
