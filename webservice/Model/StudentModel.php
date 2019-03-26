@@ -257,11 +257,12 @@ class studentModel extends BaseModel{
     function getDatasara(){
 
         $sql  = 'SELECT
-        COUNT(student.Schoolname) AS countschool,student.Schoolname
+        COUNT(student.Schoolname)  AS countschool,  student.Schoolname 
     FROM
-        student
-        GROUP BY student.Schoolname
-        ORDER BY countschool DESC';
+        student 
+        WHERE student.Schoolname LIKE "%วิทยาลัย%"
+        GROUP BY student.Schoolname 
+        ORDER BY countschool  DESC LIMIT 5';
         // echo "<pre>";
         // print_r($sql);
         // echo "</pre>";

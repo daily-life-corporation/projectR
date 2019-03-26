@@ -22,6 +22,7 @@ import {
 import {
   ActivatedRoute
 } from "@angular/router";
+import { identifierModuleUrl } from '@angular/compiler';
 @Component({
   selector: "app-view",
   templateUrl: "./view.component.html",
@@ -43,6 +44,7 @@ export class ViewComponent implements OnInit {
   // ตัวแปลที่เก็บค่าตัวที่ลบ มันจะโชวชื่อขึ้นมา
   public id_show;
   public name_show;
+
   //  public Prefix_show;
   //  public Last_show;
   //  public FirstEN_show;
@@ -190,53 +192,54 @@ export class ViewComponent implements OnInit {
   }
 
   // เพิ่มข้อมูลเข้า เก็บค่าแล้วส่งไปหน้าinsert.php
-  adddata() {
-    let body = "id=" + this.id.value
-    + "&Prefix=" + this.Prefix.value
-    + "&First=" + this.First.value
-    + "&Last=" + this.Last.value
-    + "&FirstEN=" + this.FirstEN.value
-    + "&LastEN=" + this.LastEN.value
-    + "&Nickname=" + this.Nickname.value
-    + "&IDcad=" + this.IDcad.value
-    + "&Date=" + this.Date.value
-    + "&Blood=" + this.Blood.value
-    + "&Cell=" + this.Cell.value
-    + "&Housenumber=" + this.Housenumber.value
-    + "&Subdistrict=" + this.Subdistrict.value
-    + "&District=" + this.District.value
-    + "&Province=" + this.Province.value
-    + "&Zipcode=" + this.Zipcode.value
-    + "&Schoolname=" + this.Schoolname.value
-    + "&GraduationBranch=" + this.GraduationBranch.value
-    + "&GPA=" + this.GPA.value
-    + "&GraduationDegree=" + this.GraduationDegree.value
-    + "&AcademicYear=" + this.AcademicYear.value
-    + "&Faculty=" + this.Faculty.value
-    + "&Branch=" + this.Branch.value
-    + "&Course=" + this.Course.value
-    + "&Groupname=" + this.Groupname.value
-    + "&Advisorsname=" + this.Advisorsname.value;
+  adddata(){
+      let body = "id=" + this.id.value
+      + "&Prefix=" + this.Prefix.value
+      + "&First=" + this.First.value
+      + "&Last=" + this.Last.value
+      + "&FirstEN=" + this.FirstEN.value
+      + "&LastEN=" + this.LastEN.value
+      + "&Nickname=" + this.Nickname.value
+      + "&IDcad=" + this.IDcad.value
+      + "&Date=" + this.Date.value
+      + "&Blood=" + this.Blood.value
+      + "&Cell=" + this.Cell.value
+      + "&Housenumber=" + this.Housenumber.value
+      + "&Subdistrict=" + this.Subdistrict.value
+      + "&District=" + this.District.value
+      + "&Province=" + this.Province.value
+      + "&Zipcode=" + this.Zipcode.value
+      + "&Schoolname=" + this.Schoolname.value
+      + "&GraduationBranch=" + this.GraduationBranch.value
+      + "&GPA=" + this.GPA.value
+      + "&GraduationDegree=" + this.GraduationDegree.value
+      + "&AcademicYear=" + this.AcademicYear.value
+      + "&Faculty=" + this.Faculty.value
+      + "&Branch=" + this.Branch.value
+      + "&Course=" + this.Course.value
+      + "&Groupname=" + this.Groupname.value
+      + "&Advisorsname=" + this.Advisorsname.value;
+      console.log(body);
+      const headers = new HttpHeaders({
+        "Content-Type": "application/x-www-form-urlencoded"
+      });
+      this.http
+        .post("http://localhost/webservice/API/Insertstudent.php", body, {
+          headers: headers
+        })
+        .subscribe(
+          (data: any) => {
+            console.log(data[0]);
+            this.student = data[0];
+          },
+          (error: any) => {
+            console.log(error);
+          }
+        );
+   }
 
-    console.log(body);
-    const headers = new HttpHeaders({
-      "Content-Type": "application/x-www-form-urlencoded"
-    });
 
-    this.http
-      .post("http://localhost/webservice/API/Insertstudent.php", body, {
-        headers: headers
-      })
-      .subscribe(
-        (data: any) => {
-          console.log(data[0]);
-          this.student = data[0];
-        },
-        (error: any) => {
-          console.log(error);
-        }
-      );
-  }
+
   // ฟังชันค้นหา
   click(ID: string | number | boolean) {
     this.router.navigate(["/profile", ID]);
@@ -350,7 +353,9 @@ export class ViewComponent implements OnInit {
         headers: headers
       })
       .subscribe(
+
         (data: any) => {
+
           console.log(data);
           this.student = data[0];
         },
