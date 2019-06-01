@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -21,7 +20,7 @@ export class ProfileComponent implements OnInit {
   public chak = false;
 
 
-  constructor(public db: AngularFireDatabase, public route: ActivatedRoute , public http: HttpClient,public router: Router ) {
+  constructor(public route: ActivatedRoute , public http: HttpClient, public router: Router ) {
 
     this.IDSTUDENT = this.route.params.subscribe(params => {
       this.dbstudent = params['id'];

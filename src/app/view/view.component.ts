@@ -1,32 +1,27 @@
 import {
   HttpClient,
-  HttpErrorResponse,
   HttpHeaders
-} from "@angular/common/http";
+} from '@angular/common/http';
 import {
   APIService
-} from "./../api.service";
+} from './../api.service';
 import {
   Router
-} from "@angular/router";
+} from '@angular/router';
 import {
   Component,
   OnInit
-} from "@angular/core";
-import {
-  AngularFireDatabase
-} from "angularfire2/database";
+} from '@angular/core';
 import {
   FormControl
-} from "@angular/forms";
+} from '@angular/forms';
 import {
   ActivatedRoute
-} from "@angular/router";
-import { identifierModuleUrl } from '@angular/compiler';
+} from '@angular/router';
 @Component({
-  selector: "app-view",
-  templateUrl: "./view.component.html",
-  styleUrls: ["./view.component.scss"]
+  selector: 'app-view',
+  templateUrl: './view.component.html',
+  styleUrls: ['./view.component.scss']
 })
 export class ViewComponent implements OnInit {
   public items;
@@ -101,7 +96,6 @@ export class ViewComponent implements OnInit {
   student: any;
 
   constructor(
-    public db: AngularFireDatabase,
     public router: Router,
     public api: APIService,
     public http: HttpClient,
@@ -109,7 +103,7 @@ export class ViewComponent implements OnInit {
   ) {}
   // ฟังชันเรียกข้อมูลในdatabaseออกมาโชว
   ngOnInit() {
-    this.http.get("http://localhost/webservice/API/student59TO.php").subscribe(
+    this.http.get('http://localhost/webservice/API/student59TO.php').subscribe(
       (data: any) => {
         console.log(data);
         this.c59TO = data;
@@ -120,7 +114,7 @@ export class ViewComponent implements OnInit {
       }
     );
 
-    this.http.get("http://localhost/webservice/API/student60TO.php").subscribe(
+    this.http.get('http://localhost/webservice/API/student60TO.php').subscribe(
       (data: any) => {
         console.log(data);
         this.c60TO = data;
@@ -130,7 +124,7 @@ export class ViewComponent implements OnInit {
       }
     );
 
-    this.http.get("http://localhost/webservice/API/student61TO.php").subscribe(
+    this.http.get('http://localhost/webservice/API/student61TO.php').subscribe(
       (data: any) => {
         console.log(data);
         this.c61TO = data;
@@ -140,7 +134,7 @@ export class ViewComponent implements OnInit {
       }
     );
 
-    this.http.get("http://localhost/webservice/API/student59.php").subscribe(
+    this.http.get('http://localhost/webservice/API/student59.php').subscribe(
       (data: any) => {
         console.log(data);
         this.c59 = data;
@@ -150,7 +144,7 @@ export class ViewComponent implements OnInit {
       }
     );
 
-    this.http.get("http://localhost/webservice/API/student60.php").subscribe(
+    this.http.get('http://localhost/webservice/API/student60.php').subscribe(
       (data: any) => {
         console.log(data);
         this.c60 = data;
@@ -160,7 +154,7 @@ export class ViewComponent implements OnInit {
       }
     );
 
-    this.http.get("http://localhost/webservice/API/student61.php").subscribe(
+    this.http.get('http://localhost/webservice/API/student61.php').subscribe(
       (data: any) => {
         console.log(data);
         this.c61 = data;
@@ -170,7 +164,7 @@ export class ViewComponent implements OnInit {
       }
     );
 
-    this.http.get("http://localhost/webservice/API/studentsara.php").subscribe(
+    this.http.get('http://localhost/webservice/API/studentsara.php').subscribe(
       (data: any) => {
         console.log(data);
         this.sara = data;
@@ -180,7 +174,7 @@ export class ViewComponent implements OnInit {
       }
     );
 
-    this.http.get("http://localhost/webservice/API/studentkom.php").subscribe(
+    this.http.get('http://localhost/webservice/API/studentkom.php').subscribe(
       (data: any) => {
         console.log(data);
         this.kom = data;
@@ -192,39 +186,39 @@ export class ViewComponent implements OnInit {
   }
 
   // เพิ่มข้อมูลเข้า เก็บค่าแล้วส่งไปหน้าinsert.php
-  adddata(){
-      let body = "id=" + this.id.value
-      + "&Prefix=" + this.Prefix.value
-      + "&First=" + this.First.value
-      + "&Last=" + this.Last.value
-      + "&FirstEN=" + this.FirstEN.value
-      + "&LastEN=" + this.LastEN.value
-      + "&Nickname=" + this.Nickname.value
-      + "&IDcad=" + this.IDcad.value
-      + "&Date=" + this.Date.value
-      + "&Blood=" + this.Blood.value
-      + "&Cell=" + this.Cell.value
-      + "&Housenumber=" + this.Housenumber.value
-      + "&Subdistrict=" + this.Subdistrict.value
-      + "&District=" + this.District.value
-      + "&Province=" + this.Province.value
-      + "&Zipcode=" + this.Zipcode.value
-      + "&Schoolname=" + this.Schoolname.value
-      + "&GraduationBranch=" + this.GraduationBranch.value
-      + "&GPA=" + this.GPA.value
-      + "&GraduationDegree=" + this.GraduationDegree.value
-      + "&AcademicYear=" + this.AcademicYear.value
-      + "&Faculty=" + this.Faculty.value
-      + "&Branch=" + this.Branch.value
-      + "&Course=" + this.Course.value
-      + "&Groupname=" + this.Groupname.value
-      + "&Advisorsname=" + this.Advisorsname.value;
+  adddata() {
+      const body = 'id=' + this.id.value
+      + '&Prefix=' + this.Prefix.value
+      + '&First=' + this.First.value
+      + '&Last=' + this.Last.value
+      + '&FirstEN=' + this.FirstEN.value
+      + '&LastEN=' + this.LastEN.value
+      + '&Nickname=' + this.Nickname.value
+      + '&IDcad=' + this.IDcad.value
+      + '&Date=' + this.Date.value
+      + '&Blood=' + this.Blood.value
+      + '&Cell=' + this.Cell.value
+      + '&Housenumber=' + this.Housenumber.value
+      + '&Subdistrict=' + this.Subdistrict.value
+      + '&District=' + this.District.value
+      + '&Province=' + this.Province.value
+      + '&Zipcode=' + this.Zipcode.value
+      + '&Schoolname=' + this.Schoolname.value
+      + '&GraduationBranch=' + this.GraduationBranch.value
+      + '&GPA=' + this.GPA.value
+      + '&GraduationDegree=' + this.GraduationDegree.value
+      + '&AcademicYear=' + this.AcademicYear.value
+      + '&Faculty=' + this.Faculty.value
+      + '&Branch=' + this.Branch.value
+      + '&Course=' + this.Course.value
+      + '&Groupname=' + this.Groupname.value
+      + '&Advisorsname=' + this.Advisorsname.value;
       console.log(body);
       const headers = new HttpHeaders({
-        "Content-Type": "application/x-www-form-urlencoded"
+        'Content-Type': 'application/x-www-form-urlencoded'
       });
       this.http
-        .post("http://localhost/webservice/API/Insertstudent.php", body, {
+        .post('http://localhost/webservice/API/Insertstudent.php', body, {
           headers: headers
         })
         .subscribe(
@@ -242,11 +236,11 @@ export class ViewComponent implements OnInit {
 
   // ฟังชันค้นหา
   click(ID: string | number | boolean) {
-    this.router.navigate(["/profile", ID]);
+    this.router.navigate(['/profile', ID]);
   }
   public getsearch(ID) {
     this.http
-      .get("http://localhost/webservice/API/seach.php?ID=" + ID)
+      .get('http://localhost/webservice/API/seach.php?ID=' + ID)
       .subscribe(
         (data: any) => {
           console.log(data);
@@ -263,7 +257,7 @@ export class ViewComponent implements OnInit {
 
     this.http
       .get(
-        "http://localhost/webservice/API/deletestudent.php?ID=" + this.id_show
+        'http://localhost/webservice/API/deletestudent.php?ID=' + this.id_show
       )
       .subscribe(
         (data: any) => {
@@ -282,9 +276,9 @@ export class ViewComponent implements OnInit {
   }
 
   updateitem(
-    id,Prefix,First,Last,FirstEN,LastEN,Nickname,IDcad,Date,Blood,Cell,Housenumber,Subdistrict,
-    District,Province,Zipcode,Schoolname,GraduationBranch,GPA,GraduationDegree,AcademicYear,Faculty,
-    Branch,Course,Groupname,Advisorsname
+    id, Prefix, First, Last, FirstEN, LastEN, Nickname, IDcad, Date, Blood, Cell, Housenumber, Subdistrict,
+    District, Province, Zipcode, Schoolname, GraduationBranch, GPA, GraduationDegree, AcademicYear, Faculty,
+    Branch, Course, Groupname, Advisorsname
   ) {
     this.id = new FormControl(id);
     this.Prefix = new FormControl(Prefix);
@@ -315,41 +309,41 @@ export class ViewComponent implements OnInit {
   }
 
   public update() {
-    let body =
-      "id=" + this.id.value
-      +"&Prefix=" +this.Prefix.value
-      +"&First=" +this.First.value
-      +"&Last=" +this.Last.value
-      +"&FirstEN=" +this.FirstEN.value
-      +"&LastEN=" +this.LastEN.value
-      +"&Nickname=" +this.Nickname.value
-      +"&IDcad=" +this.IDcad.value
-      +"&Date=" +this.Date.value
-      +"&Blood=" +this.Blood.value
-      +"&Cell=" +this.Cell.value
-      +"&Housenumber=" +this.Housenumber.value
-      +"&Subdistrict=" +this.Subdistrict.value
-      +"&District=" +this.District.value
-      +"&Province=" +this.Province.value
-      +"&Zipcode=" +this.Zipcode.value
-      +"&Schoolname=" +this.Schoolname.value
-      +"&GraduationBranch=" +this.GraduationBranch.value
-      +"&GPA=" +this.GPA.value
-      +"&GraduationDegree=" +this.GraduationDegree.value
-      +"&AcademicYear=" +this.AcademicYear.value
-      +"&Faculty=" +this.Faculty.value
-      +"&Branch=" +this.Branch.value
-      +"&Course=" +this.Course.value
-      +"&Groupname=" +this.Groupname.value
-      +"&Advisorsname=" +this.Advisorsname.value;
+    const body =
+      'id=' + this.id.value
+      + '&Prefix=' + this.Prefix.value
+      + '&First=' + this.First.value
+      + '&Last=' + this.Last.value
+      + '&FirstEN=' + this.FirstEN.value
+      + '&LastEN=' + this.LastEN.value
+      + '&Nickname=' + this.Nickname.value
+      + '&IDcad=' + this.IDcad.value
+      + '&Date=' + this.Date.value
+      + '&Blood=' + this.Blood.value
+      + '&Cell=' + this.Cell.value
+      + '&Housenumber=' + this.Housenumber.value
+      + '&Subdistrict=' + this.Subdistrict.value
+      + '&District=' + this.District.value
+      + '&Province=' + this.Province.value
+      + '&Zipcode=' + this.Zipcode.value
+      + '&Schoolname=' + this.Schoolname.value
+      + '&GraduationBranch=' + this.GraduationBranch.value
+      + '&GPA=' + this.GPA.value
+      + '&GraduationDegree=' + this.GraduationDegree.value
+      + '&AcademicYear=' + this.AcademicYear.value
+      + '&Faculty=' + this.Faculty.value
+      + '&Branch=' + this.Branch.value
+      + '&Course=' + this.Course.value
+      + '&Groupname=' + this.Groupname.value
+      + '&Advisorsname=' + this.Advisorsname.value;
 
     console.log(body);
     const headers = new HttpHeaders({
-      "Content-Type": "application/x-www-form-urlencoded"
+      'Content-Type': 'application/x-www-form-urlencoded'
     });
 
     this.http
-      .post("http://localhost/webservice/API/Updatestudent.php", body, {
+      .post('http://localhost/webservice/API/Updatestudent.php', body, {
         headers: headers
       })
       .subscribe(
